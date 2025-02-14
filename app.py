@@ -43,6 +43,6 @@ with js_st.form("json"):
                 js.no_async_randydev("json/all", is_obj=False)
             )
         except Exception as e:
-            st.error(str(e))
+            js_st.error(str(e))
 
 js.hide_streamlit_watermark(unsafe_allow_html=True)
