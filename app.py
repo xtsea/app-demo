@@ -31,4 +31,14 @@ with js_st.form("github"):
         else:
             js_st.error(github_data)
 
+js_st.write("Examples JSON by AkenoX API")
+
+with js.st.form("json"):
+    submitted = js_st.form_submit_button("Submit")
+    if submitted:
+        js_st.pinner("Loading......")
+        js_st.json(
+            js.no_async_randydev("json/all", post=False)
+        )
+
 js.hide_streamlit_watermark(unsafe_allow_html=True)
