@@ -37,8 +37,7 @@ with js_st.form("json"):
     submitted = js_st.form_submit_button("Submit")
     if submitted:
         js_st.spinner("Loading......")
-        js_st.json(
-            js.no_async_randydev("json/all", post=False)
-        )
+        result = js.no_async_randydev("json/all", post=False)
+        js_st.json(result)
 
 js.hide_streamlit_watermark(unsafe_allow_html=True)
