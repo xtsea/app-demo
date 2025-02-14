@@ -38,10 +38,10 @@ with js_st.form("json"):
     submitted = js_st.form_submit_button("Submit")
     if submitted:
         js_st.spinner("Loading......")
-        js_st.write(
-            json.dumps(
-                js.no_async_randydev("json/all", post=False)
-            ),
-            indent=4
-        )
+        try:
+            response = requests.get("https://randydev-ryu-js.hf.space/api/v1/json/all").json()
+            js_st.json(response)
+        except Exception as e:
+            st.error(str(e))
+
 js.hide_streamlit_watermark(unsafe_allow_html=True)
