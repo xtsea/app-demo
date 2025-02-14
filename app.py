@@ -39,8 +39,9 @@ with js_st.form("json"):
     if submitted:
         js_st.spinner("Loading......")
         try:
-            response = requests.get("https://randydev-ryu-js.hf.space/api/v1/json/all").json()
-            js_st.json(response)
+            js_st.json(
+                js.no_async_randydev("json/all", is_obj=False)
+            )
         except Exception as e:
             st.error(str(e))
 
