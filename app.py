@@ -1,5 +1,6 @@
 import asyncio
 import requests
+import json
 from akenoai import AkenoXToJs as js
 
 class GithubUsername:
@@ -37,7 +38,10 @@ with js_st.form("json"):
     submitted = js_st.form_submit_button("Submit")
     if submitted:
         js_st.spinner("Loading......")
-        result = js.no_async_randydev("json/all", post=False)
-        js_st.json(result)
-
+        js_st.write(
+            json.dumps(
+                js.no_async_randydev("json/all", post=False)
+            ),
+            indent=4
+        )
 js.hide_streamlit_watermark(unsafe_allow_html=True)
