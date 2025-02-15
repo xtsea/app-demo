@@ -1,6 +1,7 @@
 import asyncio
 import requests
 import json
+import time
 from akenoai import AkenoXToJs as js
 
 class GithubUsername:
@@ -32,7 +33,7 @@ with js_st.form("github"):
         else:
             js_st.error(github_data)
 
-js_st.write("Examples JSON by AkenoX API")
+js_st.title("Examples JSON by AkenoX API")
 
 with js_st.form("json"):
     submitted = js_st.form_submit_button("Submit")
@@ -45,4 +46,25 @@ with js_st.form("json"):
         except Exception as e:
             js_st.error(str(e))
 
+js_st.title("ChatGPT AI")
+
+with js_st.from("openai"):
+    text = js_st.text_area('Enter text:', 'How to JavaScript code?')
+    submitted = js_st.form_submit_button('Submit')
+    placeholder = js_st.empty()
+    free_api_key_on = js_st.toggle("Free Api Key")
+    if submitted:
+        try:
+            if free_api_key_on:
+                with placeholder, js_st.spinner("Processing......"):
+                    time.sleep(5)
+                js_st.write(
+                    js_st.no_async_randydev("ai/openai/gpt-old", is_obj=True, query=text).results
+                )
+                js_st.success("Join Channel telegram : @RendyProjects")
+            else:
+                js_st.warning('Use button Free API Key', icon="⚠️")
+        except Exception as e:
+            js_st.error(str(e))
+                            
 js.hide_streamlit_watermark(unsafe_allow_html=True)
