@@ -48,7 +48,7 @@ with js_st.form("json"):
 
 js_st.title("ChatGPT AI")
 
-with js_st.from("openai"):
+with js_st.form("openai"):
     text = js_st.text_area('Enter text:', 'How to JavaScript code?')
     submitted = js_st.form_submit_button('Submit')
     placeholder = js_st.empty()
