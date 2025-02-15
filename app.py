@@ -1,4 +1,3 @@
-import asyncio
 import requests
 import json
 import time
@@ -66,5 +65,6 @@ with js_st.form("openai"):
                 js_st.warning('Use button Free API Key', icon="⚠️")
         except Exception as e:
             js_st.error(str(e))
-                            
+
+js.waifu_random()
 js.hide_streamlit_watermark(unsafe_allow_html=True)
