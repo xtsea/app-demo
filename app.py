@@ -59,7 +59,7 @@ with js_st.from("openai"):
                 with placeholder, js_st.spinner("Processing......"):
                     time.sleep(5)
                 js_st.write(
-                    js_st.no_async_randydev("ai/openai/gpt-old", is_obj=True, query=text).results
+                    js.no_async_randydev("ai/openai/gpt-old", is_obj=True, query=text).results
                 )
                 js_st.success("Join Channel telegram : @RendyProjects")
             else:
