@@ -2,7 +2,7 @@ import asyncio
 import requests
 import json
 import time
-from akenoai import AkenoXToJs as js
+from akenoai.streamlit import StreamlitToJs as js
 
 class GithubUsername:
     def __init__(self, username):
